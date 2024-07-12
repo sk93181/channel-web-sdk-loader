@@ -1,0 +1,82 @@
+{
+  "name": "@channel.io/channel-web-sdk-loader",
+  "version": "1.1.7",
+  "description": "Official Channel Web SDK Loader",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.esm.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs.js"
+      }
+    }
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json && mv dist/index.js dist/index.esm.js && mv dist/index.d.ts dist/index.d.mts && cp dist/index.esm.js dist/index.esm.mjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json && mv dist/index.js dist/index.cjs.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz",
+    "build:typedoc": "typedoc src/index.ts"
+  },
+  "files": [
+    "dist",
+    "images"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/channel-io/channel-web-sdk-loader.git"
+  },
+  "keywords": [
+    "crm",
+    "customer relationship management",
+    "channel",
+    "channel.io",
+    "channel-talk",
+    "channeltalk",
+    "channel talk",
+    "channel web sdk",
+    "channel web sdk loader",
+    "channel js sdk",
+    "channel javascript sdk",
+    "channel javascript sdk loader",
+    "live chat",
+    "livechat",
+    "live-chat",
+    "chatbot",
+    "chat bot",
+    "messenger",
+    "chat application",
+    "marketing",
+    "customer support",
+    "branding",
+    "chat",
+    "채널톡",
+    "채널"
+  ],
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/channel-io/channel-web-sdk-loader/issues"
+  },
+  "homepage": "https://github.com/channel-io/channel-web-sdk-loader#readme",
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
